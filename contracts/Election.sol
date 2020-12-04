@@ -8,6 +8,7 @@ contract Election
     address userAddress;
     uint candidateCount;
     uint totVotes;
+    uint aid;
 
 
     struct Candidate
@@ -27,6 +28,7 @@ contract Election
     {
         ownerAddress = msg.sender;
         candidateCount=0;
+        aid=1;
         totVotes = 0;
     }
 
@@ -44,7 +46,8 @@ contract Election
 
     function addCandidate(string memory _name) isowner public
     {
-        candidate[candidateCount] = Candidate(candidateCount,_name,0);
+        candidate[aid] = Candidate(aid,_name,0);
+        aid++;
         candidateCount++;
     }
 
